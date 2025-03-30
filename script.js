@@ -153,24 +153,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Portfolio Swiper functionality
     function initPortfolioSwiper() {
-        const swiperContainer = document.querySelector('.swiper-container');
-        const swiperWrapper = document.querySelector('.swiper-wrapper');
-        const slides = document.querySelectorAll('.swiper-slide');
-        const prevButton = document.querySelector('.swiper-button-prev');
-        const nextButton = document.querySelector('.swiper-button-next');
-        const pagination = document.querySelector('.swiper-pagination');
-        
-        // Create pagination bullets
-        slides.forEach((_, index) => {
-            // Skip creating bullets for the last 2 slides
-            if (index < slides.length - 2) {
-                const bullet = document.createElement('span');
-                bullet.classList.add('swiper-pagination-bullet');
-                if (index === 0) bullet.classList.add('swiper-pagination-bullet-active');
-                bullet.addEventListener('click', () => goToSlide(index));
-                pagination.appendChild(bullet);
-            }
-        });
+        const swiperContainer = document.querySelector('.portfolio-swiper .swiper-container');
+        const swiperWrapper = document.querySelector('.portfolio-swiper .swiper-wrapper');
+        const slides = document.querySelectorAll('.portfolio-swiper .swiper-slide');
+        const prevButton = document.querySelector('.portfolio-swiper .swiper-button-prev');
+        const nextButton = document.querySelector('.portfolio-swiper .swiper-button-next');
         
         let currentIndex = 0;
         let slideWidth;
@@ -180,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const containerWidth = swiperContainer.offsetWidth;
             let slidesPerView = 3; // Default for desktop
             
-            if (window.innerWidth <= 1200) slidesPerView = 2;
+            if (window.innerWidth <= 992) slidesPerView = 2;
             if (window.innerWidth <= 768) slidesPerView = 1;
             
             slideWidth = containerWidth / slidesPerView;
@@ -197,15 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateSlidePosition() {
             const offset = -currentIndex * slideWidth;
             swiperWrapper.style.transform = `translateX(${offset}px)`;
-            
-            // Update active pagination bullet
-            document.querySelectorAll('.swiper-pagination-bullet').forEach((bullet, index) => {
-                if (index === currentIndex) {
-                    bullet.classList.add('swiper-pagination-bullet-active');
-                } else {
-                    bullet.classList.remove('swiper-pagination-bullet-active');
-                }
-            });
         }
         
         function goToSlide(index) {
@@ -252,4 +230,82 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.portfolio-swiper')) {
         initPortfolioSwiper();
     }
-});
+    
+    // Hero section navigation buttons
+    const heroNavPrev = document.querySelector('.hero .swiper-button-prev');
+    const heroNavNext = document.querySelector('.hero .swiper-button-next');
+    
+    if (heroNavPrev && heroNavNext) {
+        let currentVideoIndex = 0;
+        const videos = ['./Assets/b3.mp4', './Assets/b2.mp4'];
+        const heroVideo = document.querySelector('.hero-background');
+        
+        heroNavPrev.addEventListener('click', function() {
+            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+            heroVideo.querySelector('source').src = videos[currentVideoIndex];
+            heroVideo.load();
+            heroVideo.play();
+        });
+        
+        heroNavNext.addEventListener('click', function() {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            heroVideo.querySelector('source').src = videos[currentVideoIndex];
+            heroVideo.load();
+            heroVideo.play();
+        });
+    }
+    
+    // Skills section navigation buttons
+    const skillsNavPrev = document.querySelector('.skills .swiper-button-prev');
+    const skillsNavNext = document.querySelector('.skills .swiper-button-next');
+    
+    if (skillsNavPrev && skillsNavNext) {
+        const skillItems = document.querySelectorAll('.skill-item');
+        let currentSkillIndex = 0;
+        let itemsPerView = window.innerWidth <= 768 ? 1 : window.innerWidth <= 992 ? 2 : 3;
+        
+        function updateSkillsView() {
+            const maxIndex = Math.max(0, skillItems.length - itemsPerView);
+            // Ensure currentSkillIndex is within valid range
+            if (currentSkillIndex > maxIndex) {
+                currentSkillIndex = maxIndex;
+            }
+            
+            skillItems.forEach((item, index) => {
+                if (index >= currentSkillIndex && index < currentSkillIndex + itemsPerView) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // Initialize view
+        updateSkillsView();
+        
+        skillsNavPrev.addEventListener('click', function() {
+            if (currentSkillIndex > 0) {
+                currentSkillIndex--;
+                updateSkillsView();
+            }
+        });
+        
+        skillsNavNext.addEventListener('click', function() {
+            const maxIndex = Math.max(0, skillItems.length - itemsPerView);
+            if (currentSkillIndex < maxIndex) {
+                currentSkillIndex++;
+                updateSkillsView();
+            }
+        });
+        
+        window.addEventListener('resize', function() {
+            const newItemsPerView = window.innerWidth <= 768 ? 1 : window.innerWidth <= 992 ? 2 : 3;
+            if (newItemsPerView !== itemsPerView) {
+                itemsPerView = newItemsPerView;
+                currentSkillIndex = 0;
+                updateSkillsView();
+            }
+        });
+    }
+    }
+);

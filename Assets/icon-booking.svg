@@ -2,6 +2,6 @@
   <circle cx="50" cy="50" r="45" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="2"/>
   <rect x="25" y="30" width="50" height="35" rx="2" ry="2" fill="#e0e0e0"/>
   <rect x="30" y="35" width="40" height="25" rx="1" ry="1" fill="#f5f5f5"/>
-  <circle cx="70" cy="35" r="10" fill="#323930"/>
+  <circle cx="70" cy="35" r="10" fill="#1D63FF"/>
   <text x="67" y="39" font-family="Arial" font-size="10" font-weight="bold" fill="white">5%</text>
 </svg>

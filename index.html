@@ -10,17 +10,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lightbox.css">
     <script src="script.js" defer></script>
+    <script src="lightbox.js" defer></script>
 </head>
 
 <body>
     <nav class="bottom-navbar">
         <ul>
-            <li class="active"><a href="#hero">HOME</a></li>
-            <li><a href="#skills">SKILLS</a></li>
-            <li><a href="#portfolio">PORTFOLIO</a></li>
-            <li><a href="#how-it-works">PROCESS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+            <li class="active"><a href="#hero">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#how-it-works">Process</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <main>
@@ -50,52 +52,44 @@
 
         <section id="skills" class="skills">
             <div class="container">
-                <div class="skills-header">
-                    <h2>Skills & Proficiencies</h2>
-                </div>
-                <div class="all-skills">
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <h4>DESIGN MOCKUPS</h4>
-                            <p>We create realistic visual representations of client projects.</p>
-                            <div class="skill-image">
-                                <img src="./Assets/s1.png" alt="Design Mockup">
+                <div class="skills-layout">
+                    <div class="skills-heading">
+                        <h1>Skills &<br>Proficiencies</h1>
+                    </div>
+                    <div class="skills-content">
+                        <div class="skills-category">
+                            <h2>Technical Skills</h2>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <h3>DESIGN MOCKUPS</h3>
+                                    <p>We create realistic visual representations of client projects.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <h3>3D RENDERING</h3>
+                                    <p>We are familiar with 3D software for renderings and digital decks.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <h3>BUDGETING</h3>
+                                    <p>We provide a range of affordable options.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <h4>3D RENDERING</h4>
-                            <p>We are familiar with 3D software for renderings and digital decks.</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>COMMUNICATION</h4>
-                            <p>We focus on being attentive listeners and collaborative partners, tailoring our efforts
-                                to
-                                meet customers' needs by considering their preferences and interests.</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>BUDGETING</h4>
-                            <p>We provide a range of affordable options.</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>CREATIVITY</h4>
-                            <p>We combine a vivid imagination with design sense and practical application.</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>ATTENTION TO DETAIL</h4>
-                            <p>We cover all bases and strive for perfection, even in the smallest details.</p>
-                            <div class="skill-image">
-                                <img src="./Assets/s6.jpg" alt="Attention to details">
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="execution-content">
-                                <h4>EXECUTION</h4>
-                                <p>We excel at bringing designs to life through meticulous project management,
-                                    coordinating with contractors, and ensuring timely completion while maintaining
-                                    quality standards.</p>
-                            </div>
-                            <div class="skill-image">
-                                <img src="./Assets/s2.png" alt="Execution">
+                        <div class="skills-category">
+                            <h2>Soft Skills</h2>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <h3>COMMUNICATION</h3>
+                                    <p>We actively listen and collaborate with customers to deliver solutions that match
+                                        their unique preferences.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <h3>CREATIVITY</h3>
+                                    <p>We combine a vivid imagination with design sense and practical application.</p>
+                                </div>
+                                <div class="skill-item">
+                                    <h3>ATTENTION TO DETAIL</h3>
+                                    <p>We cover all bases and strive for perfection, even in the smallest details.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,104 +98,143 @@
         </section>
 
         <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2>Selected Works</h2>
+            <div class="container portfolio-container">
+                <div class="portfolio-heading">
+                    <h1>Our Portfolio Showcase</h1>
+                </div>
                 <div class="portfolio-swiper">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p1.jpg" alt="Modern Living Room Design">
-                                    <div class="overlay">
+                                    <div class="item-number">001</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p1.jpg" alt="Modern Living Room Design">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Modern Living Room</h3>
-                                        <p>Contemporary design with minimalist furniture and natural lighting</p>
+                                        <p>Contemporary living space with elegant furnishings and harmonious color palette.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p2.jpg" alt="Luxury Kitchen Design">
-                                    <div class="overlay">
+                                    <div class="item-number">002</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p2.jpg" alt="Luxury Kitchen Design">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Luxury Kitchen</h3>
-                                        <p>High-end appliances with marble countertops and custom cabinetry</p>
+                                        <p>High-end kitchen featuring modern appliances and premium finishes.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p3.jpg" alt="Master Bedroom Suite">
-                                    <div class="overlay">
+                                    <div class="item-number">003</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p3.jpg" alt="Master Bedroom Suite">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Master Bedroom Suite</h3>
-                                        <p>Elegant design with custom headboard and ambient lighting</p>
+                                        <p>Luxurious bedroom design with custom storage solutions and ambient lighting.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p4.jpg" alt="Contemporary Bathroom">
-                                    <div class="overlay">
+                                    <div class="item-number">004</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p4.jpg" alt="Contemporary Bathroom">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Contemporary Bathroom</h3>
-                                        <p>Modern fixtures with luxury tiles and glass shower enclosure</p>
+                                        <p>Modern bathroom featuring sleek fixtures and premium materials.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p5.jpg" alt="Home Office Design">
-                                    <div class="overlay">
+                                    <div class="item-number">005</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p5.jpg" alt="Home Office Design">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Home Office</h3>
-                                        <p>Functional workspace with built-in storage and ergonomic design</p>
+                                        <p>Functional workspace design with ergonomic solutions and smart storage.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p6.jpg" alt="Dining Room Design">
-                                    <div class="overlay">
+                                    <div class="item-number">006</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p6.jpg" alt="Dining Room Design">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Dining Room</h3>
-                                        <p>Elegant dining space with custom lighting and statement pieces</p>
+                                        <p>Elegant dining space with custom lighting and sophisticated decor.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p7.jpg" alt="Children's Room Design">
-                                    <div class="overlay">
+                                    <div class="item-number">007</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p7.jpg" alt="Children's Room Design">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Children's Room</h3>
-                                        <p>Playful and functional design with smart storage solutions</p>
+                                        <p>Playful and practical children's space with creative storage solutions.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p8.jpg" alt="Entertainment Room">
-                                    <div class="overlay">
+                                    <div class="item-number">008</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p8.jpg" alt="Entertainment Room">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Entertainment Room</h3>
-                                        <p>Modern media room with acoustic treatment and custom seating</p>
+                                        <p>Custom home theater setup with premium acoustics and comfortable seating.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-item">
-                                    <img src="Assets/p9.jpg" alt="Outdoor Living Space">
-                                    <div class="overlay">
+                                    <div class="item-number">009</div>
+                                    <div class="image-container">
+                                        <img src="Assets/p9.jpg" alt="Outdoor Living Space">
+                                    </div>
+                                    <div class="item-content">
                                         <h3>Outdoor Living</h3>
-                                        <p>Luxurious patio design with comfortable seating and landscaping</p>
+                                        <p>Stylish outdoor space blending comfort with natural elements.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-navigation">
+                        <button class="swiper-button-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="#F9E795" />
+                            </svg>
+                        </button>
+                        <button class="swiper-button-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" fill="#F9E795" />
+                            </svg>
+
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="how-it-works" class="how-it-works">
             <div class="container">
-                <h2>How it works</h2>
+                <h1>How it Works</h1>
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="step-icon">
@@ -245,7 +278,7 @@
 
         <section id="what-we-offer" class="what-we-offer">
             <div class="container">
-                <h2>What we offer</h2>
+                <h2>What We Offer</h2>
                 <div class="offer-cards">
                     <div class="offer-card services">
                         <div class="card-icon">
@@ -281,7 +314,7 @@
 
         <section id="testimonials" class="testimonials">
             <div class="container">
-                <h2 style="font-size: 2.5em; text-align: center;">What Our Clients Say</h2>
+                <h2 style="font-size: 2.5em; font-weight: 700;">What Our Clients Say</h2>
                 <div class="testimonial-cards">
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
@@ -312,8 +345,7 @@
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-                            nesciunt fugit assumenda voluptatum tempore porro, quia harum praesentium sit illum,
-                            doloribus tempora, explicabo natus accusantium.</p>
+                            nesciunt fugit assumenda voluptatum tempore porro.</p>
                         <div class="testimonial-author">
                             <img src="./Assets/s5.jpg" alt="Emily Chen" class="author-avatar">
                             <div class="author-info">
@@ -329,12 +361,14 @@
         <section id="contact" class="contact">
             <div class="container">
                 <div class="contact-form">
-                    <h2>DESIGN FOR EVERY BUDGET</h2>
+                    <h2>Design for Every Budget</h2>
                     <form id="contactForm">
                         <input type="text" name="name" placeholder="Name" required>
                         <input type="tel" name="phone" placeholder="Phone No" required>
                         <input type="email" name="email" placeholder="Email ID" required>
-                        <input type="text" name="address" placeholder="Property Address" required>
+                        <textarea name="address" placeholder="Property Address" required></textarea>
+                        <input type="number" name="budget" placeholder="Budget" required>
+                        <textarea name="message" placeholder="Leave your message (optional)"></textarea>
                         <button type="submit">GET FREE QUOTE</button>
                         <p class="form-disclaimer">By submitting this form, you agree to the privacy policy & terms and
                             condition</p>
@@ -342,22 +376,34 @@
                 </div>
                 <footer id="footer" class="footer">
                     <div class="connect-section">
-                        <h2>Connect with me</h2>
+                        <h2>Connect with us</h2>
                         <div class="contact-info">
                             <p>RINKU SENGUPTA</p>
-                            <p>rinkusengupta701@gmail.com</p>
-                            <p>9874613580/ 8777864747</p>
+                            <p style="font-family: Arial, Helvetica, sans-serif;">rinkusengupta701@gmail.com</p>
+                            <p style="font-family: Arial, Helvetica, sans-serif;">9874613580/ 8777864747</p>
                         </div>
                         <div class="qr-code">
-                            <img src="qr-code.png" alt="Connect QR Code">
-                            <p>CONNECT WITH ME</p>
+                            <img src="./Assets/qr.png" alt="Connect QR Code">
+                            <p>CONNECT WITH US</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">
+                                <img src="./Assets/behance.png" alt="Behance">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="./Assets/facebook.png" alt="Facebook">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="./Assets/insta.png" alt="Facebook">
+                            </a>
                         </div>
                     </div>
                 </footer>
             </div>
         </section>
     </main>
-    <a href="https://wa.me/9832668044?text=Hi%20Rana%20Interior,%20I'm%20interested%20in%20your%20interior%20design%20services.%20I%20want%20a%20FREE%20QUOTE." class="whatsapp-button" target="_blank" rel="noopener noreferrer"></a>
+    <a href="https://wa.me/9832668044?text=Hi%20Rana%20Interior,%20I'm%20interested%20in%20your%20interior%20design%20services.%20I%20want%20a%20FREE%20QUOTE."
+        class="whatsapp-button" target="_blank" rel="noopener noreferrer">
         <img src="./Assets/whatsapp.png" alt="Contact on WhatsApp">
     </a>
 </body>
