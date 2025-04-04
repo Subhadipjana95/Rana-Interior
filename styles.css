@@ -1033,10 +1033,9 @@ main {
 
 .portfolio-item img {
     width: 100%;
-    height: 100%;
+    height: 280px;
     object-fit: cover;
-    object-fit: cover;
-    object-fit: contain;
+    object-position: center;
 }
 
 .item-content {
@@ -1101,6 +1100,10 @@ main {
     
     .portfolio-item {
         height: 350px;
+    }
+    
+    .portfolio-item .image-container {
+        height: 220px;
     }
 }
 

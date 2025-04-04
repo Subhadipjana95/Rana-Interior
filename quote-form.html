@@ -1,29 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote Request Form</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Quote Form Modal -->
-    <div id="quoteModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Request a Quote</h2>
-            <form id="quoteForm">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="tel" name="phone" placeholder="Phone No" required>
-                <input type="email" name="email" placeholder="Email ID" required>
-                <textarea name="address" placeholder="Property Address" required></textarea>
-                <input type="number" name="budget" placeholder="Budget" required>
-                <textarea name="message" placeholder="Leave your message (optional)"></textarea>
-                <button type="submit">SUBMIT REQUEST</button>
-            </form>
-        </div>
-    </div>
+    <title>Request a Quote</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "ybUMc3eP0yD9FaNHI",
+            });
+        })();
+    </script>
+    <script>
+        function sendEmail(e) {
+            // Prevent the form from submitting normally
+            e.preventDefault();
+            
+            let params = {
+                name: document.getElementById("name").value,
+                telephone: document.getElementById("telephone").value,
+                email: document.getElementById("email").value,
+                address: document.getElementById("address").value,
+                budget: document.getElementById("budget").value,
+                message: document.getElementById("message").value,
+            };
 
-    <script src="script.js" defer></script>
+            // Show loading indicator or disable button here if desired
+            document.getElementById("submitBtn").disabled = true;
+            document.getElementById("submitBtn").textContent = "Sending...";
+
+            emailjs.send("service_303g0ll", "template_d7voeb6", params)
+                .then(function(response) {
+                    console.log("SUCCESS!", response.status, response.text);
+                    alert("Your request has been successfully sent. ✅");
+                    document.getElementById("quoteForm").reset();
+                    // If opened in iframe, notify parent window
+                    if (window.parent !== window) {
+                        window.parent.postMessage('formSubmitted', '*');
+                    }
+                })
+                .catch(function(error) {
+                    console.log("FAILED...", error);
+                    alert("Failed to send email. Please try again later.");
+                })
+                .finally(function() {
+                    // Re-enable button
+                    document.getElementById("submitBtn").disabled = false;
+                    document.getElementById("submitBtn").textContent = "SUBMIT REQUEST";
+                });
+        }
+
+        // Add event listener to the form
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("quoteForm").addEventListener("submit", sendEmail);
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Syne', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .form-content {
+            max-width: 100%;
+            border-radius: 16px;
+            padding: 20px 20px 10px; /* Reduced bottom padding */
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 0; /* Remove default form margin */
+        }
+        
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .message-area {
+            height: 100px; /* Default height for larger screens */
+        }
+        
+        @media (max-width: 480px) {
+            .message-area {
+                height: 50px; /* Smaller height for mobile screens */
+            }
+        }
+        
+        button {
+            padding: 12px;
+            background-color: #497ae3;
+            color: #fafaf9;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: inherit;
+            transition: all ease 0.3s;
+            margin-bottom: 5px; /* Small margin at the bottom */
+        }
+        
+        button:hover {
+            background-color: #7979e5;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-content">
+        <h2>Design for Every Budget</h2>
+        <form id="quoteForm">
+            <input type="text" name="name" id="name" placeholder="Name" required>
+            <input type="tel" name="phone" id="telephone" placeholder="Phone No" required>
+            <input type="email" name="email" id="email" placeholder="Email ID" required>
+            <textarea name="address" id="address" placeholder="Property Location" required></textarea>
+            <input type="number" id="budget" name="budget" placeholder="Budget" required>
+            <textarea name="message" id="message" placeholder="Leave your message (optional)" class="message-area"></textarea>
+            <button type="submit" id="submitBtn">Submit Request</button>
+        </form>
+    </div>
 </body>
+
 </html>

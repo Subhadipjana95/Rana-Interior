@@ -13,6 +13,55 @@
     <link rel="stylesheet" href="lightbox.css">
     <script src="script.js" defer></script>
     <script src="lightbox.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "ybUMc3eP0yD9FaNHI",
+            });
+        })();
+    </script>
+    <script>
+        function sendEmail(e) {
+            // Prevent the form from submitting normally
+            e.preventDefault();
+        
+            let params = {
+                name: document.getElementById("name").value,
+                telephone: document.getElementById("phone").value,  // Changed from "telephone" to "phone"
+                email: document.getElementById("email").value,
+                address: document.getElementById("address").value,
+                budget: document.getElementById("budget").value,
+                message: document.getElementById("message").value,
+            };
+        
+            // Show loading indicator or disable button here if desired
+            document.getElementById("submitBtn").disabled = true;
+            document.getElementById("submitBtn").textContent = "Sending...";
+        
+            emailjs.send("service_303g0ll", "template_d7voeb6", params)
+                .then(function (response) {
+                    console.log("SUCCESS!", response.status, response.text);
+                    alert("Your request has been successfully sent. ✅");
+                    document.getElementById("contactForm").reset();
+                })
+                .catch(function (error) {
+                    console.log("FAILED...", error);
+                    alert("Failed to send email. Please try again later.");
+                })
+                .finally(function () {
+                    // Re-enable button
+                    document.getElementById("submitBtn").disabled = false;
+                    document.getElementById("submitBtn").textContent = "GET FREE QUOTE";  // Changed to match the original button text
+                });
+        }
+    
+        // Add event listener to the form
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("contactForm").addEventListener("submit", sendEmail);
+        });
+    </script>
 </head>
 
 <body>
@@ -363,13 +412,13 @@
                 <div class="contact-form">
                     <h2>Design for Every Budget</h2>
                     <form id="contactForm">
-                        <input type="text" name="name" placeholder="Name" required>
-                        <input type="tel" name="phone" placeholder="Phone No" required>
-                        <input type="email" name="email" placeholder="Email ID" required>
-                        <textarea name="address" placeholder="Property Address" required></textarea>
-                        <input type="number" name="budget" placeholder="Budget" required>
-                        <textarea name="message" placeholder="Leave your message (optional)"></textarea>
-                        <button type="submit">GET FREE QUOTE</button>
+                        <input type="text" name="name" id="name" placeholder="Name" required>
+                        <input type="tel" name="phone" id="phone" placeholder="Phone No" required>
+                        <input type="email" name="email" id="email" placeholder="Email ID" required>
+                        <textarea name="address" id="address" placeholder="Property Address" required></textarea>
+                        <input type="number" name="budget" id="budget" placeholder="Budget" required>
+                        <textarea name="message" id="message" placeholder="Leave your message (optional)"></textarea>
+                        <button type="submit" id="submitBtn">GET FREE QUOTE</button>
                         <p class="form-disclaimer">By submitting this form, you agree to the privacy policy & terms and
                             condition</p>
                     </form>
@@ -388,13 +437,16 @@
                         </div>
                         <div class="social-links">
                             <a href="#" class="social-icon">
-                                <img src="./Assets/behance.png" alt="Behance">
-                            </a>
-                            <a href="#" class="social-icon">
                                 <img src="./Assets/facebook.png" alt="Facebook">
                             </a>
                             <a href="#" class="social-icon">
                                 <img src="./Assets/insta.png" alt="Facebook">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="./Assets/x.png" alt="Behance">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="./Assets/threads.png" alt="Behance">
                             </a>
                         </div>
                     </div>

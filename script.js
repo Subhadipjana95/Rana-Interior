@@ -1,103 +1,4 @@
-// Modal functionality for quote form
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Get quote button element
-    const btn = document.getElementById('quoteBtn');
-    let modal, closeBtn, quoteForm;
-    let modalLoaded = false;
-    
-    // Function to load the quote form
-    function loadQuoteForm() {
-        if (!modalLoaded) {
-            // Create a container for the modal if it doesn't exist
-            if (!document.getElementById('quoteModalContainer')) {
-                const container = document.createElement('div');
-                container.id = 'quoteModalContainer';
-                document.body.appendChild(container);
-            }
-            
-            // Fetch the quote form HTML
-            fetch('quote-form.html')
-                .then(response => response.text())
-                .then(html => {
-                    // Extract just the modal div from the HTML
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const modalContent = doc.getElementById('quoteModal');
-                    
-                    // Add the modal to the page
-                    document.getElementById('quoteModalContainer').innerHTML = modalContent.outerHTML;
-                    
-                    // Now get the elements from the newly added modal
-                    modal = document.getElementById('quoteModal');
-                    closeBtn = document.querySelector('.close-modal');
-                    quoteForm = document.getElementById('quoteForm');
-                    
-                    // Set up event listeners for the modal
-                    setupModalListeners();
-                    
-                    // Show the modal
-                    modal.classList.add('show');
-                    modalLoaded = true;
-                })
-                .catch(error => {
-                    console.error('Error loading quote form:', error);
-                });
-        } else {
-            // If already loaded, just show the modal
-            modal.classList.add('show');
-        }
-    }
-    
-    // Function to set up modal event listeners
-    function setupModalListeners() {
-        // Close modal when X is clicked
-        closeBtn.addEventListener('click', function() {
-            modal.classList.remove('show');
-        });
-        
-        // Close modal when clicking outside the modal content
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.classList.remove('show');
-            }
-        });
-        
-        // Handle form submission
-        quoteForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Get form values
-            const phoneNumber = quoteForm.querySelector('input[type="tel"]').value;
-            const email = quoteForm.querySelector('input[type="email"]').value;
-            const address = quoteForm.querySelector('input[type="text"]').value;
-            
-            // Here you would typically send this data to a server
-            console.log('Quote request submitted:', { phoneNumber, email, address });
-            
-            // Show success message
-            alert('Thank you for your quote request! We will contact you soon.');
-            
-            // Reset form and close modal
-            quoteForm.reset();
-            modal.classList.remove('show');
-        });
-    }
-    
-    // Open modal when any quote button is clicked
-    btn.addEventListener('click', function() {
-        loadQuoteForm();
-    });
-
-    // Add event listener for the consultation button
-    const consultationBtn = document.querySelector('.cta-button');
-    if (consultationBtn) {
-        consultationBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            loadQuoteForm();
-        });
-    }
-
     // Scroll-based navigation highlight feature
     function highlightNavOnScroll() {
         // Get all sections that we want to track
@@ -307,5 +208,95 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+});
+
+// Quote button functionality
+document.addEventListener("DOMContentLoaded", function() {
+    // Add event listener to the quote button
+    const quoteBtn = document.getElementById("quoteBtn");
+    if (quoteBtn) {
+        quoteBtn.addEventListener("click", function() {
+            // Create an overlay for the quote form
+            const overlay = document.createElement("div");
+            overlay.className = "quote-overlay";
+            
+            // Create a container for the form and close button
+            const formContainer = document.createElement("div");
+            formContainer.className = "quote-form-container";
+            
+            // Create an iframe to load the quote form
+            const iframe = document.createElement("iframe");
+            iframe.src = "quote-form.html";
+            iframe.className = "quote-iframe";
+            
+            // Create a close button
+            const closeBtn = document.createElement("button");
+            closeBtn.className = "close-quote-form";
+            closeBtn.innerHTML = "&times;";
+            closeBtn.addEventListener("click", function() {
+                document.body.removeChild(overlay);
+            });
+            
+            // Append elements to the DOM
+            formContainer.appendChild(iframe);
+            formContainer.appendChild(closeBtn);
+            overlay.appendChild(formContainer);
+            document.body.appendChild(overlay);
+        });
     }
-);
+    
+    // Add styles for the quote form overlay
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        .quote-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .quote-form-container {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            height: 80%;
+        }
+        
+        .quote-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+            background-color: white;
+        }
+        
+        .close-quote-form {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background:rgb(185, 186, 203);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .close-quote-form:hover {
+            scale: 1.1;
+            background-color: rgb(211, 205, 205);
+        }
+    `;
+    document.head.appendChild(styleElement);
+});
