@@ -87,10 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
             swiperWrapper.style.transform = `translateX(${offset}px)`;
         }
         
-        function goToSlide(index) {
-            currentIndex = index;
-            updateSlidePosition();
-        }
         
         function goToNextSlide() {
             // Calculate the maximum index based on slides per view
@@ -272,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 8px;
+            border-radius: 20px;
             background-color: white;
         }
         

@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <div id="portfolioLightbox" class="lightbox">
                 <div class="lightbox-content">
                     <span class="close-lightbox">&times;</span>
-                    <img class="lightbox-img" src="" alt="">
                     <div class="lightbox-details">
                         <h3></h3>
                         <p></p>
                     </div>
+                    <img class="lightbox-img" src="" alt="">
                 </div>
             </div>
         `;

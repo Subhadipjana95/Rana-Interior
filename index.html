@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rana Interior - Interior Designer</title>
-    <link rel="icon" type="image/x-icon" href="./Assets/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./Assets/favi.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
         function sendEmail(e) {
             // Prevent the form from submitting normally
             e.preventDefault();
-        
+
             let params = {
                 name: document.getElementById("name").value,
                 telephone: document.getElementById("phone").value,  // Changed from "telephone" to "phone"
@@ -35,11 +35,11 @@
                 budget: document.getElementById("budget").value,
                 message: document.getElementById("message").value,
             };
-        
+
             // Show loading indicator or disable button here if desired
             document.getElementById("submitBtn").disabled = true;
             document.getElementById("submitBtn").textContent = "Sending...";
-        
+
             emailjs.send("service_303g0ll", "template_d7voeb6", params)
                 .then(function (response) {
                     console.log("SUCCESS!", response.status, response.text);
@@ -56,7 +56,7 @@
                     document.getElementById("submitBtn").textContent = "GET FREE QUOTE";  // Changed to match the original button text
                 });
         }
-    
+
         // Add event listener to the form
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("contactForm").addEventListener("submit", sendEmail);
@@ -70,7 +70,7 @@
             <li class="active"><a href="#hero">Home</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#how-it-works">Process</a></li>
+            <li><a href="#Process">Process</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -82,8 +82,8 @@
                     <source src="./Assets/b2.mp4" type="video/mp4">
                 </video>
                 <div class="hero-text">
-                    <h1 class="hero-title">RANA INTERIOR</h1>
-                    <p class="hero-subtitle">Every Design Crafted with Love and Thoughtful Ingredients.</p>
+                    <h1 class="hero-title">Rana Interiors.</h1>
+                    <p class="hero-subtitle">Every Design Crafted with Love and Thoughtful Ingredients</p>
                     <button class="cssbuttons-io-button" id="quoteBtn">
                         Get a Quote
                         <div class="icon">
@@ -149,7 +149,7 @@
         <section id="portfolio" class="portfolio">
             <div class="container portfolio-container">
                 <div class="portfolio-heading">
-                    <h1>Our Portfolio Showcase</h1>
+                    <h1>Our Portfolio</h1>
                 </div>
                 <div class="portfolio-swiper">
                     <div class="swiper-container">
@@ -162,7 +162,8 @@
                                     </div>
                                     <div class="item-content">
                                         <h3>Modern Living Room</h3>
-                                        <p>Contemporary living space with elegant furnishings and harmonious color palette.</p>
+                                        <p>Contemporary living space with elegant furnishings and harmonious color
+                                            palette.</p>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +187,8 @@
                                     </div>
                                     <div class="item-content">
                                         <h3>Master Bedroom Suite</h3>
-                                        <p>Luxurious bedroom design with custom storage solutions and ambient lighting.</p>
+                                        <p>Luxurious bedroom design with custom storage solutions and ambient lighting.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -281,7 +283,7 @@
             </div>
         </section>
 
-        <section id="how-it-works" class="how-it-works">
+        <section id="Process" class="how-it-works">
             <div class="container">
                 <h1>How it Works</h1>
                 <div class="process-steps">
@@ -325,9 +327,9 @@
             </div>
         </section>
 
-        <section id="what-we-offer" class="what-we-offer">
+        <section id="Process" class="what-we-offer">
             <div class="container">
-                <h2>What We Offer</h2>
+                <h1>What We Offer</h1>
                 <div class="offer-cards">
                     <div class="offer-card services">
                         <div class="card-icon">
@@ -363,43 +365,39 @@
 
         <section id="testimonials" class="testimonials">
             <div class="container">
-                <h2 style="font-size: 2.5em; font-weight: 700;">What Our Clients Say</h2>
+                <h1>What Our<br>Clients Say</h1>
                 <div class="testimonial-cards">
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nisi
-                            voluptate libero vitae non eos, voluptatibus soluta magni doloribus, error exercitationem.
-                            Inventore, ad.</p>
+                        <p class="testimonial-text">“Absolutely loved the transformation! My space feels like a dream
+                            now.”</p>
                         <div class="testimonial-author">
-                            <img src="./Assets/s3.jpg" alt="Sarah Johnson" class="author-avatar">
+                            <img src="./Assets/t1.png" alt="Sarah Johnson" class="author-avatar">
                             <div class="author-info">
-                                <h4>Sarah Johnson</h4>
-                                <p>Product Manager @ Amazon</p>
+                                <h4>Debkumar Bagchi</h4>
+                                <p>Customer</p>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="stars">★★★★</div>
-                        <p class="testimonial-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                            laborum, ipsum reiciendis cum in delectus consequatur provident accusamus necessitatibus?
-                        </p>
+                        <div class="stars">★★★★<span class="void-star">★</span></div>
+                        <p class="testimonial-text">“Professional, creative, and timely - highly recommended!”</p>
                         <div class="testimonial-author">
-                            <img src="./Assets/s4.jpg" alt="John Doe" class="author-avatar">
+                            <img src="./Assets/t2.png" alt="John Doe" class="author-avatar">
                             <div class="author-info">
-                                <h4>John Doe</h4>
-                                <p>Software Engineer @ Google</p>
+                                <h4>Sabir Sarkar</h4>
+                                <p>Customer</p>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-                            nesciunt fugit assumenda voluptatum tempore porro.</p>
+                        <p class="testimonial-text">“Professional, creative, and timely - highly recommended!”</p>
                         <div class="testimonial-author">
-                            <img src="./Assets/s5.jpg" alt="Emily Chen" class="author-avatar">
+                            <img src="./Assets/t3.png" alt="Emily Chen" class="author-avatar">
                             <div class="author-info">
-                                <h4>Emily Chen</h4>
-                                <p>UX Designer @ Microsoft</p>
+                                <h4>Paromita Das</h4>
+                                <p>Customer</p>
                             </div>
                         </div>
                     </div>
@@ -415,9 +413,9 @@
                         <input type="text" name="name" id="name" placeholder="Name" required>
                         <input type="tel" name="phone" id="phone" placeholder="Phone No" required>
                         <input type="email" name="email" id="email" placeholder="Email ID" required>
-                        <textarea name="address" id="address" placeholder="Property Address" required></textarea>
-                        <input type="number" name="budget" id="budget" placeholder="Budget" required>
-                        <textarea name="message" id="message" placeholder="Leave your message (optional)"></textarea>
+                        <textarea name="address" id="address" placeholder="Property Location" required></textarea>
+                        <input type="number" name="budget" id="budget" min="5000" placeholder="Budget" required>
+                        <textarea name="message" id="message" rows="4" placeholder="Leave your message (optional)"></textarea>
                         <button type="submit" id="submitBtn">GET FREE QUOTE</button>
                         <p class="form-disclaimer">By submitting this form, you agree to the privacy policy & terms and
                             condition</p>
@@ -454,10 +452,15 @@
             </div>
         </section>
     </main>
-    <a href="https://wa.me/9832668044?text=Hi%20Rana%20Interior,%20I'm%20interested%20in%20your%20interior%20design%20services.%20I%20want%20a%20FREE%20QUOTE."
-        class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <img src="./Assets/whatsapp.png" alt="Contact on WhatsApp">
-    </a>
+    <div class="action-buttons-container">
+        <a href="tel:9038627655" class="call-button" target="_blank" rel="noopener noreferrer">
+            <img src="./Assets/call.png" alt="Call Now">
+        </a>
+        <a href="https://wa.me/9832668044?text=Hi%20Rana%20Interior,%20I'm%20interested%20in%20your%20interior%20design%20services.%20I%20want%20a%20FREE%20QUOTE."
+            class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+            <img src="./Assets/whatsapp.png" alt="Contact on WhatsApp">
+        </a>
+    </div>
 </body>
 
 </html>
