@@ -673,10 +673,10 @@ main {
     background-color: var(--accent-color);
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 90%;
+    height: 97%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 14px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
@@ -695,14 +695,14 @@ main {
     border-radius: 6px;
     position: relative;
     width: 100%;
-    height: 280px;
+    height: 310px;
     margin: 20px 0 10px 0;
     overflow: hidden;
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 280px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     transition: transform 0.3s ease;
@@ -735,7 +735,7 @@ main {
     display: flex;
     justify-content: flex-start;
     gap: 10px;
-    margin-top: -25px;
+    margin-top: -10px;
     margin-left: 20px;
     position: relative;
     bottom: 0;
@@ -775,12 +775,10 @@ main {
 }
 
 .swiper-button-prev:hover {
-    opacity: 0.9;
     transform: translateX(-3px);
 }
 
 .swiper-button-next:hover {
-    opacity: 0.9;
     transform: translateX(3px);
 }
 
@@ -800,13 +798,15 @@ main {
     margin: 0 auto;
     color: white;
     font-size: 1.8rem;
+    padding: 0 40px;
 }
+
 
 .contact-form {
     margin-left: 100px;
     flex: 1;
     max-width: 500px;
-    padding: 40px;
+    padding: 40px 40px 20px 40px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -861,7 +861,6 @@ main {
     font-size: 0.8rem;
     color: #666;
     text-align: center;
-    margin-top: 20px;
 }
 
 .social-links {
@@ -981,6 +980,7 @@ main {
     transform: scale(1.1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
+
 /* Buttons Container */
 .action-buttons-container {
     position: fixed;
@@ -1121,7 +1121,7 @@ main {
 }
 
 .stars {
-    color: #ffd700;
+    color: #ffa154;
     font-size: 24px;
     margin-bottom: 15px;
 }
@@ -1481,13 +1481,13 @@ main {
     }
 
     .portfolio-item {
-        height: 350px;
+        height: 450px;
         max-width: 400px;
         margin: 0 auto;
     }
 
     .portfolio-item .image-container {
-        height: 220px;
+        height: 280px;
     }
 
     .item-number {
@@ -1500,7 +1500,7 @@ main {
     }
 
     .item-content p {
-        font-size: 0.9rem;
+        font-size: 14px;
     }
 
     /* Testimonial Section */
@@ -1555,16 +1555,19 @@ main {
         right: 5.5vw;
         gap: 8px;
     }
-    
-    .call-button, .whatsapp-button {
+
+    .call-button,
+    .whatsapp-button {
         height: 38px;
         width: 38px;
         box-shadow: none;
     }
-    .call-button img, .whatsapp-button img{
+
+    .call-button img,
+    .whatsapp-button img {
         height: 20px;
         width: 20px;
-    } 
+    }
 
     .skills h1,
     .what-we-offer h1,
@@ -1595,13 +1598,15 @@ main {
     .hero-background {
         object-position: 30% 50%;
     }
+
     .hero-logo {
         top: 20vw;
         right: 15px;
         max-width: 60px;
         position: absolute;
     }
-    .hero-subtitle{
+
+    .hero-subtitle {
         font-size: 1.03rem;
     }
 
@@ -1721,7 +1726,7 @@ main {
     .skill-item {
         width: 90vw;
         min-height: 140px;
-        padding: 15px;
+        padding: 20px;
         grid-column: span 1 !important;
         grid-row: span 1 !important;
         max-width: 320px;
@@ -1803,13 +1808,14 @@ main {
     }
 
     /* Contact Section*/
-    .contact{
-        padding: 50px 0 ;
+    .contact {
+        padding: 50px 0;
         align-items: center;
         justify-content: center;
     }
+
     .contact-info p {
-        font-size: 0.8rem;
+        font-size: 16px;
         line-height: 1.3;
     }
 
@@ -1827,7 +1833,7 @@ main {
     }
 
     .bottom-navbar li a {
-        font-size: 13px;
+        font-size: 15px;
         padding: 0.5rem 0.4rem;
         border-radius: 8px;
     }
@@ -1846,10 +1852,11 @@ main {
         text-align: center;
         line-height: 1;
     }
-    
-    .how-it-works h1{
+
+    .how-it-works h1 {
         align-self: center;
     }
+
     .what-we-offer h1 {
         align-self: center;
         flex: 0px;
@@ -1858,10 +1865,17 @@ main {
         padding-top: 0px;
 
     }
+
     /* Action Button Container */
     .action-buttons-container {
         bottom: 3vw;
         right: 5.5vw;
+    }
+
+    .whatsapp-button,
+    .call-button {
+        height: 2.8em;
+        width: 2.8em;
     }
 }
 
