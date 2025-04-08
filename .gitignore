@@ -1,0 +1,21 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node modules (if used)
+node_modules/
+
+# Build directories (if added later)
+dist/
+build/
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS-specific files
+*.swp
+*.swo
