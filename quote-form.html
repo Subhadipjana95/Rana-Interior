@@ -13,7 +13,7 @@
     <script type="text/javascript">
         (function () {
             emailjs.init({
-                publicKey: "ybUMc3eP0yD9FaNHI",
+                publicKey: "n8JqQfmwtPvF5YU89",
             });
         })();
     </script>
@@ -35,7 +35,7 @@
             document.getElementById("submitBtn").disabled = true;
             document.getElementById("submitBtn").textContent = "Sending...";
 
-            emailjs.send("service_303g0ll", "template_d7voeb6", params)
+            emailjs.send("service_u4ifxjo", "template_5lpxuef", params)
                 .then(function(response) {
                     console.log("SUCCESS!", response.status, response.text);
                     alert("Your request has been successfully sent. ✅");
