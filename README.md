@@ -27,8 +27,8 @@ A modern, responsive React website for Rana Interior Design services, built with
 ## 📦 Installation
 
 1. **Clone the repository**
-`git clone [your-repo-url]
-cd rana-interior`
+`git clone [your-repo-url]`
+`cd rana-interior`
 
 2. **Install dependencies**
 `npm install`
