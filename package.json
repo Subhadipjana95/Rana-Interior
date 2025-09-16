@@ -11,13 +11,12 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
+    "clsx": "^2.1.1",
+    "emailjs-com": "^3.2.0",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.13",
-    "emailjs-com": "^3.2.0",
-    "react-helmet-async": "^2.0.4",
-    "clsx": "^2.0.0"
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

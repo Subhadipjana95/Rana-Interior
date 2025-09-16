@@ -1,1 +1,51 @@
 @import "tailwindcss";
+
+@theme  {
+  --color-primary: #f0f0f0;
+  --color-secondary: #242479;
+  --color-accent: #497ae3;
+  --color-text: #4f505a;
+  --color-card: #a7bdff;
+  --color-background: #fafaf9;
+  
+  --font-family-syne: "Syne", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-syne);
+  line-height: 1.6;
+  background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-syne);
+  color: black;
+  font-weight: 600;
+  line-height: 1;
+}
+
+p, input, button {
+  font-family: var(--font-family-syne);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
