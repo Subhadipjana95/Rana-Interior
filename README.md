@@ -27,37 +27,37 @@ A modern, responsive React website for Rana Interior Design services, built with
 ## 📦 Installation
 
 1. **Clone the repository**
-git clone [your-repo-url]
-cd rana-interior
+`git clone [your-repo-url]
+cd rana-interior`
 
 2. **Install dependencies**
-npm install
+`npm install`
 
 3. **Set up environment variables**
-cp .env.example .env
+`cp .env.example .env`
 Add your EmailJS credentials to `.env`
 
 4. **Start development server**
-npm run dev
+`npm run dev`
 
 ## 📁 Project Structure
-rana-interior/
-├── public/ # Static assets
-│ ├── assets/ # Images, videos, icons
-│ ├── robots.txt
-│ └── sitemap.xml
-├── src/
-│ ├── components/ # Reusable UI components
-│ ├── features/ # Feature-based components
-│ ├── hooks/ # Custom React hooks
-│ ├── services/ # External services
-│ ├── utils/ # Utility functions
-│ ├── App.jsx
-│ ├── main.jsx
-│ └── index.css
-├── package.json
-├── vite.config.js
-└── README.md
+`rana-interior/`
+`├── public/ # Static assets`
+`│ ├── assets/ # Images, videos, icons`
+`│ ├── robots.txt`
+`│ └── sitemap.xml`
+`├── src/`
+`│ ├── components/ # Reusable UI components`
+`│ ├── features/ # Feature-based components`
+`│ ├── hooks/ # Custom React hooks`
+`│ ├── services/ # External services`
+`│ ├── utils/ # Utility functions`
+`│ ├── App.jsx`
+`│ ├── main.jsx`
+`│ └── index.css`
+`├── package.json`
+`├── vite.config.js`
+`└── README.md`
 
 
 ## 🎯 Key Features Implemented
