@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p></p>
                     </div>
                     <img class="lightbox-img" src="" alt="">
+                    <div class="lightbox-nav">
+                        <button class="lightbox-prev">❮</button>
+                        <button class="lightbox-next">❯</button>
+                    </div>
                 </div>
             </div>
         `;
@@ -26,34 +30,71 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxTitle = lightbox.querySelector('.lightbox-details h3');
     const lightboxDesc = lightbox.querySelector('.lightbox-details p');
     const closeBtn = lightbox.querySelector('.close-lightbox');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
     
-    // Get all portfolio items
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    // Get all portfolio items (both from main page and gallery page)
+    const portfolioItems = document.querySelectorAll('.portfolio-item, .gallery-item a');
+    let currentIndex = 0;
+    let allImages = [];
+    
+    // Collect all image data
+    portfolioItems.forEach((item, index) => {
+        let imgSrc, imgAlt, title, desc;
+        
+        if (item.classList.contains('portfolio-item')) {
+            // Main page portfolio items
+            imgSrc = item.querySelector('img').src;
+            imgAlt = item.querySelector('img').alt;
+            title = item.querySelector('.item-content h3').textContent;
+            desc = item.querySelector('.item-content p').textContent;
+        } else {
+            // Gallery page items
+            imgSrc = item.href || item.querySelector('img').src;
+            imgAlt = item.querySelector('img').alt;
+            title = item.querySelector('.gallery-info h3').textContent;
+            desc = item.querySelector('.gallery-info p').textContent;
+        }
+        
+        allImages.push({ src: imgSrc, alt: imgAlt, title: title, desc: desc });
+    });
+    
+    // Function to show image at specific index
+    function showImage(index) {
+        if (allImages[index]) {
+            lightboxImg.src = allImages[index].src;
+            lightboxImg.alt = allImages[index].alt;
+            lightboxTitle.textContent = allImages[index].title;
+            lightboxDesc.textContent = allImages[index].desc;
+            currentIndex = index;
+        }
+    }
     
     // Add click event to each portfolio item
-    portfolioItems.forEach(item => {
+    portfolioItems.forEach((item, index) => {
         item.addEventListener('click', function(e) {
             // Prevent default behavior
             e.preventDefault();
             
-            // Get image source, title and description
-            const imgSrc = this.querySelector('img').src;
-            const imgAlt = this.querySelector('img').alt;
-            const title = this.querySelector('.item-content h3').textContent;
-            const desc = this.querySelector('.item-content p').textContent;
-            
-            // Set lightbox content
-            lightboxImg.src = imgSrc;
-            lightboxImg.alt = imgAlt;
-            lightboxTitle.textContent = title;
-            lightboxDesc.textContent = desc;
-            
-            // Show lightbox
+            // Show lightbox with clicked image
+            showImage(index);
             lightbox.classList.add('show');
             
             // Prevent body scrolling when lightbox is open
             document.body.style.overflow = 'hidden';
         });
+    });
+    
+    // Previous image
+    prevBtn.addEventListener('click', function() {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : allImages.length - 1;
+        showImage(currentIndex);
+    });
+    
+    // Next image
+    nextBtn.addEventListener('click', function() {
+        currentIndex = currentIndex < allImages.length - 1 ? currentIndex + 1 : 0;
+        showImage(currentIndex);
     });
     
     // Close lightbox when X is clicked
@@ -70,11 +111,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close lightbox with Escape key
+    // Close lightbox with Escape key, navigate with arrow keys
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && lightbox.classList.contains('show')) {
-            lightbox.classList.remove('show');
-            document.body.style.overflow = '';
+        if (lightbox.classList.contains('show')) {
+            if (event.key === 'Escape') {
+                lightbox.classList.remove('show');
+                document.body.style.overflow = '';
+            } else if (event.key === 'ArrowLeft') {
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : allImages.length - 1;
+                showImage(currentIndex);
+            } else if (event.key === 'ArrowRight') {
+                currentIndex = currentIndex < allImages.length - 1 ? currentIndex + 1 : 0;
+                showImage(currentIndex);
+            }
         }
     });
 });
